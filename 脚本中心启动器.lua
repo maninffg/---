@@ -341,7 +341,7 @@ else
     local kickBody= "<font color='rgb(255,100,100)'>发生错误，脚本中心必须关闭。</font>\n\n"..
                     "<font color='rgb(220,220,220)'>错误: </font><font color='rgb(255,150,150)'>"..errorMsg.."</font>\n\n"..
                     "<font color='rgb(100,200,255)'>请在我们的哔哩哔哩上报告此问题:</font>\n"..
-                    "<font color='rgb(0,170,255)'>https://discord.gg/zpaMS8qUfB</font>"
+                    "<font color='rgb(0,170,255)'>【bili_25927834813-哔哩哔哩】 https://b23.tv/Nk1Nk46</font>"
     local success,cKickModule=pcall(function()
         return loadstring(game:HttpGet("https://raw.githubusercontent.com/not-gato/gatostuff/refs/heads/main/raw/scripts/uKick.lua"))()
     end)
