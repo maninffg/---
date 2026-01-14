@@ -1,11 +1,10 @@
-<!--<h1 align="center">WindUI</h1> -->
+<!-- 说实话，你是来看阅读的代码对吧😰 -->
 
-<!--
-<picture>
-    <source srcset="docs/banner-dark.webp" media="(prefers-color-scheme: dark)">
-    <source srcset="docs/banner-light.webp" media="(prefers-color-scheme: light)">
-    <img src="docs/banner-light.webp" alt="WindUI Banner">
-</picture>-->
+
+<img src="docs/banner-new.webp" alt="Script Hub">
+
+> [脚本中心]
+> 🤔
 
 
 
@@ -15,7 +14,7 @@
 
  
 > [脚本中心] 
-> 真的，求你别看了
+> 真的求你别看了
 > 没源码的除了一些
 
 
