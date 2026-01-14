@@ -3,6 +3,13 @@
 
 <img src="retouch_2025122216491675.jpg" alt="Script Hub">
 
+
+## Bug反馈
+- [QQ Bug反馈群](https://github.com/Footagesus/WindUI.git) (点击蓝色文字)
+
+
+
+
 > [脚本中心]
 > 🤔
 
