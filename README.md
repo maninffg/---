@@ -20,8 +20,8 @@
 
 
 
-## Credits
-#### Colorpicker script
+## 其他
+#### by
 - [UI 官网](https://github.com/Footagesus/WindUI.git) (WindUI github)
 
 
