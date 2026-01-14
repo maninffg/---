@@ -1,0 +1,4 @@
+-- 示列
+-- [[ loadstring(game:HttpGet("https://raw.githubusercontent.com/maninffg/---/refs/heads/main/脚本中心备用启动器.lua"))() ]]
+ -- 如果出现错误,使用上面那个
+ -- loadstring(game:HttpGet("https://raw.githubusercontent.com/maninffg/---/refs/heads/main/脚本中心启动器.lua"))()
