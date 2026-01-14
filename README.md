@@ -22,13 +22,19 @@
 
 ## Credits
 #### Colorpicker script
-- [UI 官网](https://github.com/Footagesus/WindUI.git) (Fluent)
+- [UI 官网](https://github.com/Footagesus/WindUI.git) (WindUI github)
 
 
 
 
 
-- [这里是Script Hub脚本](/main_example.lua) (wip)
+- [这里是备用启动器](脚本代码.lua) (复制或点击蓝色文字)
   ```luau
   loadstring(game:HttpGet("https://raw.githubusercontent.com/maninffg/---/refs/heads/main/脚本中心启动器.lua"))()
   ```
+
+  - [这里是Script Hub脚本](脚本代码.lua) (复制或点击蓝色文字)
+  ```luau
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/maninffg/---/refs/heads/main/脚本中心备用启动器.lua"))()
+  ```
+
