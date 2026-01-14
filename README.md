@@ -22,21 +22,13 @@
 
 ## Credits
 #### Colorpicker script
-- [Dawid-Scripts](https://github.com/dawid-scripts) (Fluent)
-
-#### Icons (https://github.com/Footagesus/Icons)
-- [Lucide-Icons](https://github.com/lucide-icons/lucide) 
-- [Craft Icons](https://www.figma.com/community/file/1415718327120418204)
-- [Geist Icons](https://vercel.com/geist/icons)
-- [Solar Icons](https://icones.js.org/collection/solar)
-- [SF Symbols](https://sf-symbols-one.vercel.app/)
+- [UI 官网](https://github.com/Footagesus/WindUI.git) (Fluent)
 
 
-### Links
-- [Discord Server](https://discord.gg/ftgs-development-hub-1300692552005189632)
-- [Documentation](https://Footagesus.github.io/WindUI-Docs/)
-- [Installation](https://footagesus.github.io/WindUI-Docs/docs/installation)
-- [Example](/main_example.lua) (wip)
+
+
+
+- [这里是Script Hub脚本](/main_example.lua) (wip)
   ```luau
-  loadstring(game:HttpGet('https://raw.githubusercontent.com/Footagesus/WindUI/refs/heads/main/main_example.lua'))()
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/maninffg/---/refs/heads/main/脚本中心启动器.lua"))()
   ```
