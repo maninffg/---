@@ -30,11 +30,10 @@
 
 - [这里是备用启动器](脚本代码.lua) (复制或点击蓝色文字)
   ```luau
-  loadstring(game:HttpGet("https://raw.githubusercontent.com/maninffg/---/refs/heads/main/脚本中心启动器.lua"))()
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/maninffg/---/refs/heads/main/脚本备用中心启动器.lua"))()
   ```
-
-  - [这里是Script Hub脚本](脚本代码.lua) (复制或点击蓝色文字)
+- [这里是Script Hub脚本](脚本代码.lua) (复制或点击蓝色文字)
   ```luau
-  loadstring(game:HttpGet("https://raw.githubusercontent.com/maninffg/---/refs/heads/main/脚本中心备用启动器.lua"))()
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/maninffg/---/refs/heads/main/脚本中心启动器.lua"))()
   ```
 
