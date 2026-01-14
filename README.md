@@ -1,7 +1,7 @@
 <!-- 说实话，你是来看阅读的代码对吧😰 -->
 
 
-<img src="docs/banner-new.webp" alt="Script Hub">
+<img src="retouch_2025122216491675.jpg" alt="Script Hub">
 
 > [脚本中心]
 > 🤔
