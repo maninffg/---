@@ -5,7 +5,7 @@
 
 
 ## Bug反馈
-- [QQ Bug反馈群](https://qun.qq.com/universal-share/share?ac=1&authKey=xIS5YMEgm1kE96LndeBfRG0RKboojp%2FdBQ5XNKVOqyMUBxIFhgtaE5bC8PskFbEO&busi_data=eyJncm91cENvZGUiOiI0MzU2MjE5NjgiLCJ0b2tlbiI6Iitxd2Z1MWQ3NmwzTGJMcWNVcmc0bWRqYVhQY0lCdklrcjIzaVI4TzJhYzl0d0RpRnNDRHdGcFpZUklieGNYZGgiLCJ1aW4iOiIzMzQxMTI2ODQwIn0%3D&data=OxRl5JybzJvjsdSlfeg7XH4jRWNMQv4TgdUbVVmLgik4VgZmxRznwoxMcZCORYE1BiZrDVPCNpX4hXdwwoYaaw&svctype=4&tempid=h5_group_info) (点击蓝色文字)
+- [QQ Bug反馈群](https://qun.qq.com/universal-share/share?ac=1&authKey=xIS5YMEgm1kE96LndeBfRG0RKboojp%2FdBQ5XNKVOqyMUBxIFhgtaE5bC8PskFbEO&busi_data=eyJncm91cENvZGUiOiI0MzU2MjE5NjgiLCJ0b2tlbiI6Iitxd2Z1MWQ3NmwzTGJMcWNVcmc0bWRqYVhQY0lCdklrcjIzaVI4TzJhYzl0d0RpRnNDRHdGcFpZUklieGNYZGgiLCJ1aW4iOiIzMzQxMTI2ODQwIn0%3D&data=OxRl5JybzJvjsdSlfeg7XH4jRWNMQv4TgdUbVVmLgik4VgZmxRznwoxMcZCORYE1BiZrDVPCNpX4hXdwwoYaaw&svctype=4&tempid=h5_group_info9178) (点击蓝色文字)
 
 
 
