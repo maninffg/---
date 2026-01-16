@@ -1,4 +1,4 @@
- -- 有些有注释，其余的都没有
+ -- [[ 些有注释，其余的都没有 ]]
 if game.CoreGui:FindFirstChild("SysBroker") then
 	game:GetService("StarterGui"):SetCore("SendNotification", {Title = "系统错误",Text = "GUI已加载，重新加入以重新执行",Duration = 5;})
 	return
