@@ -1,4 +1,5 @@
--- UI库 v1.0
+-- 脚本中心UI库
+-- 打开的人是gay
 
 local cloneref = (cloneref or clonereference or function(instance: any)
     return instance
@@ -461,7 +462,7 @@ function Library:CreateCherryBlossomParticles(container)
     CherryBlossomParticles.Container.Name = "CherryBlossomContainer"
     CherryBlossomParticles.Container.BackgroundTransparency = 1
     CherryBlossomParticles.Container.Size = UDim2.new(1, 0, 1, 0)
-    CherryBlossomParticles.Container.ClipsDescendants = true -- 确保粒子不会超出容器
+    CherryBlossomParticles.Container.ClipsDescendants = true
     CherryBlossomParticles.Container.ZIndex = 0
     CherryBlossomParticles.Container.Parent = container
     
@@ -469,7 +470,7 @@ function Library:CreateCherryBlossomParticles(container)
     CherryBlossomParticles.Particles = {}
     
     -- 创建樱花粒子
-    for i = 1, 30 do
+    for i = 1, 50 do -- 增加粒子数量
         local particle = Instance.new("ImageLabel")
         particle.Name = "CherryBlossomParticle" .. i
         particle.Image = "rbxassetid://13078658715" -- 樱花纹理
@@ -479,70 +480,74 @@ function Library:CreateCherryBlossomParticles(container)
         particle.Rotation = math.random(0, 360)
         particle.ImageColor3 = CherryBlossomParticles.Colors[math.random(1, #CherryBlossomParticles.Colors)]
         particle.ImageTransparency = math.random(2, 8) / 10
-        particle.ZIndex = 1
+        particle.ZIndex = 0 -- 降低ZIndex确保在UI元素后面
         particle.Parent = CherryBlossomParticles.Container
         
-        -- 添加旋转动画
-        local rotateTween = TweenService:Create(
-            particle,
-            TweenInfo.new(math.random(10, 20), Enum.EasingStyle.Linear),
-            {Rotation = particle.Rotation + math.random(360, 720)}
-        )
-        rotateTween:Play()
+        -- 添加粒子动画函数
+        local function animateParticle()
+            if not particle or not particle.Parent then return end
+            
+            -- 随机初始位置
+            local startX = math.random()
+            particle.Position = UDim2.new(startX, 0, 0, -math.random(20, 50))
+            particle.Rotation = math.random(0, 360)
+            particle.ImageColor3 = CherryBlossomParticles.Colors[math.random(1, #CherryBlossomParticles.Colors)]
+            particle.ImageTransparency = math.random(2, 8) / 10
+            
+            -- 飘落动画
+            local fallTime = math.random(15, 30)
+            local targetX = startX + (math.random(-20, 20) / 100)
+            
+            -- 旋转动画
+            local rotateTween = TweenService:Create(
+                particle,
+                TweenInfo.new(fallTime, Enum.EasingStyle.Linear),
+                {Rotation = particle.Rotation + math.random(360, 720)}
+            )
+            rotateTween:Play()
+            
+            -- 飘落动画
+            local fallTween = TweenService:Create(
+                particle,
+                TweenInfo.new(fallTime, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+                {
+                    Position = UDim2.new(
+                        targetX,
+                        0,
+                        1,
+                        math.random(10, 30)
+                    )
+                }
+            )
+            
+            fallTween.Completed:Connect(function()
+                if particle and particle.Parent and CherryBlossomParticles.Active then
+                    -- 重新开始动画
+                    animateParticle()
+                end
+            end)
+            
+            fallTween:Play()
+        end
         
-        -- 添加飘落动画
-        local fallTween = TweenService:Create(
-            particle,
-            TweenInfo.new(math.random(15, 30), Enum.EasingStyle.Linear),
-            {
-                Position = UDim2.new(
-                    particle.Position.X.Scale + (math.random(-20, 20) / 100),
-                    0,
-                    1,
-                    math.random(10, 30)
-                )
-            }
-        )
-        
-        fallTween.Completed:Connect(function()
-            if particle and particle.Parent then
-                particle.Position = UDim2.new(math.random(), 0, 0, -math.random(20, 50))
-                particle.Rotation = math.random(0, 360)
-                particle.ImageColor3 = CherryBlossomParticles.Colors[math.random(1, #CherryBlossomParticles.Colors)]
-                particle.ImageTransparency = math.random(2, 8) / 10
-                
-                -- 重新开始动画
-                local newRotate = TweenService:Create(
-                    particle,
-                    TweenInfo.new(math.random(10, 20), Enum.EasingStyle.Linear),
-                    {Rotation = particle.Rotation + math.random(360, 720)}
-                )
-                newRotate:Play()
-                
-                local newFall = TweenService:Create(
-                    particle,
-                    TweenInfo.new(math.random(15, 30), Enum.EasingStyle.Linear),
-                    {
-                        Position = UDim2.new(
-                            particle.Position.X.Scale + (math.random(-20, 20) / 100),
-                            0,
-                            1,
-                            math.random(10, 30)
-                        )
-                    }
-                )
-                newFall:Play()
-            end
+        -- 开始动画
+        task.spawn(function()
+            task.wait(math.random(0, 2)) -- 随机延迟开始
+            animateParticle()
         end)
         
-        fallTween:Play()
-        
-        table.insert(CherryBlossomParticles.Particles, {
-            Instance = particle,
-            RotateTween = rotateTween,
-            FallTween = fallTween
-        })
+        table.insert(CherryBlossomParticles.Particles, particle)
     end
+end
+
+-- 停止樱花粒子效果
+function Library:StopCherryBlossomParticles()
+    CherryBlossomParticles.Active = false
+    if CherryBlossomParticles.Container then
+        CherryBlossomParticles.Container:Destroy()
+        CherryBlossomParticles.Container = nil
+    end
+    CherryBlossomParticles.Particles = {}
 end
 
 -- 创建烟花特效
@@ -550,7 +555,7 @@ function Library:CreateFireworkEffect(position)
     local fireworkContainer = Instance.new("Frame")
     fireworkContainer.Name = "FireworkEffect"
     fireworkContainer.BackgroundTransparency = 1
-    fireworkContainer.Size = UDim2.new(0, 100, 0, 100)
+    fireworkContainer.Size = UDim2.new(0, 200, 0, 200)
     fireworkContainer.Position = position
     fireworkContainer.ZIndex = 100
     fireworkContainer.Parent = Library.ScreenGui
@@ -559,7 +564,7 @@ function Library:CreateFireworkEffect(position)
     local color = FireworkEffects.Colors[math.random(1, #FireworkEffects.Colors)]
     
     -- 创建爆炸粒子
-    for i = 1, 20 do
+    for i = 1, 30 do
         local particle = Instance.new("Frame")
         particle.Name = "FireworkParticle" .. i
         particle.BackgroundColor3 = color
@@ -573,18 +578,25 @@ function Library:CreateFireworkEffect(position)
         corner.CornerRadius = UDim.new(1, 0)
         corner.Parent = particle
         
+        -- 添加发光效果
+        local glow = Instance.new("UIStroke")
+        glow.Color = color
+        glow.Thickness = 2
+        glow.Transparency = 0.5
+        glow.Parent = particle
+        
         particle.Parent = fireworkContainer
         
         -- 计算随机方向
         local angle = math.rad(math.random(0, 360))
-        local distance = math.random(30, 60)
+        local distance = math.random(50, 100)
         local targetX = math.cos(angle) * distance
         local targetY = math.sin(angle) * distance
         
         -- 爆炸动画
         local tween = TweenService:Create(
             particle,
-            TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+            TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
             {
                 Position = UDim2.new(0.5, targetX, 0.5, targetY),
                 Size = UDim2.new(0, 2, 0, 2),
@@ -593,17 +605,19 @@ function Library:CreateFireworkEffect(position)
         )
         
         tween:Play()
-        table.insert(particles, {Instance = particle, Tween = tween})
+        table.insert(particles, particle)
     end
     
     -- 清理特效
-    task.delay(1, function()
-        for _, particleData in ipairs(particles) do
-            if particleData.Instance then
-                particleData.Instance:Destroy()
+    task.delay(1.5, function()
+        for _, particle in ipairs(particles) do
+            if particle then
+                particle:Destroy()
             end
         end
-        fireworkContainer:Destroy()
+        if fireworkContainer then
+            fireworkContainer:Destroy()
+        end
     end)
 end
 
@@ -2147,11 +2161,7 @@ function Library:Unload()
     end
 
     -- 清理樱花粒子
-    if CherryBlossomParticles.Container then
-        CherryBlossomParticles.Container:Destroy()
-    end
-    CherryBlossomParticles.Active = false
-    CherryBlossomParticles.Particles = {}
+    Library:StopCherryBlossomParticles()
 
     Library.Unloaded = true
     ScreenGui:Destroy()
@@ -6182,7 +6192,9 @@ function Library:CreateWindow(WindowInfo)
         })
 
         -- 创建樱花飘落效果
-        Library:CreateCherryBlossomParticles(MainFrame)
+        task.spawn(function()
+            Library:CreateCherryBlossomParticles(MainFrame)
+        end)
 
         DividerLine = New("Frame", {
             BackgroundColor3 = "OutlineColor",
